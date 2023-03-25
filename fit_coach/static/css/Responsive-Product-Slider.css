@@ -1,0 +1,60 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+.carousel {
+  position: relative;
+  padding-top: 10px;
+}
+
+.g-0, .gy-0 {
+  --bs-gutter-y: 0px;
+  --bs-gutter-x: 10px;
+}
+
+.slider-row {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.row {
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.mb-2 {
+  font-family: Raleway, sans-serif;
+}
+
+.subs {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+
+.price-cost {
+  color: #28be10;
+  font-family: Raleway, sans-serif;
+  font-weight: 700;
+}
+
+.price-head {
+  font-size: 29px;
+  font-family: Raleway, sans-serif;
+  font-weight: 700;
+  color: rgb(79,79,79);
+  width: 100%;
+  text-align: center;
+}
+

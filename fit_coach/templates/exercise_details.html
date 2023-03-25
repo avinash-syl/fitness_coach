@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+
+{% block title %}Exercise Detail{% endblock %}
+
+{% block content %}
+    <section class="py-5">
+        <div class="container py-5">
+            <h1>Course 1</h1><button class="btn btn-primary mt-5" id="startEndButton" type="button">Start</button>
+            <p class="mt-5"><span style="color: var(--tw-prose-body); background-color: rgba(68,70,84,var(--tw-bg-opacity));">The bicep training course is designed to help individuals who are looking to build bigger and stronger biceps. This course includes a variety of exercises that are specifically targeted towards the biceps, with a focus on both strength and hypertrophy. Throughout the course, participants will learn the proper form and technique for each exercise, as well as how to adjust their training for their individual fitness level and goals. The program also includes a comprehensive nutrition plan, with a focus on providing the body with the necessary nutrients to support muscle growth and recovery. In addition, participants will have access to a supportive community of fellow fitness enthusiasts, as well as expert guidance and support from experienced trainers. Whether you are a seasoned fitness veteran or just starting out on your fitness journey, this bicep training course is the perfect way to take your biceps to the next level and achieve your fitness goals.</span></p>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="rateCourseModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: rgb(0,0,0);font-weight: bold;font-size: 28px;">Rate this course</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body"><button class="btn btn-light" id="easyButton">Easy</button><button class="btn btn-light" id="mediumButton">Medium</button><button class="btn btn-light" id="hardButton">Hard</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

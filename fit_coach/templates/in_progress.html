@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+
+{% block title %}In Progress{% endblock %}
+
+{% block content %}
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row mb-4 mb-lg-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h3 class="fw-bold">Your Progress</h3>
+                </div>
+            </div>
+            <ul class="list-group">
+                <a href="exercise_details.html" class="list-group-item"
+                   style="background: var(--bs-list-group-border-color);"><span style="color: rgb(255,255,255);">Biceps Training</span><span
+                        class="float-end" style="color: rgb(255,255,255);">Course 1</span></a>
+                <li class="list-group-item" style="background: var(--bs-list-group-border-color);"><span
+                        style="color: rgb(255,255,255);">Another Training</span><span class="float-end">Course 2</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}
