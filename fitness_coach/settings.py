@@ -32,14 +32,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'fit_coach',
-    'django_bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django_bootstrap5',
+    
+    'django_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -78,8 +78,8 @@ WSGI_APPLICATION = 'fitness_coach.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': BASE_DIR / 'users',
     }
 }
 
