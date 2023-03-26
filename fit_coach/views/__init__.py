@@ -1,2 +1,2 @@
-from authentication_views import login_view
-from general_views import homepage_view, user_details
+from .authentication_views import login_view
+from .general_views import homepage_view, in_progress_view, user_details

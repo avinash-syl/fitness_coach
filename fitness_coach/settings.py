@@ -57,7 +57,7 @@ ROOT_URLCONF = 'fitness_coach.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["fit_coach/templates/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,6 +81,10 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': BASE_DIR / 'users',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 
