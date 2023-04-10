@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from fit_coach/models.py import User
+from ..models import User
 
 def get_users(request):
     users = User.objects.all().values()

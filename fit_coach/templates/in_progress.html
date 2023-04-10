@@ -13,13 +13,16 @@
                     <h3 class="fw-bold">Your Progress</h3>
                 </div>
             </div>
-            <ul class="list-group">
-                <a href="exercise_details.html" class="list-group-item"
-                   style="background: var(--bs-list-group-border-color);"><span style="color: rgb(255,255,255);">Biceps Training</span><span
-                        class="float-end" style="color: rgb(255,255,255);">Course 1</span></a>
-                <li class="list-group-item" style="background: var(--bs-list-group-border-color);"><span
-                        style="color: rgb(255,255,255);">Another Training</span><span class="float-end">Course 2</span>
-                </li>
+            <ul class="list-group" id="inProgressList">
+                {% for course in courses %}
+                    <li class="list-group-item" style="background: var(--bs-list-group-border-color);">
+                        <a href="{% url 'detail' course.id %}" class="list">
+                            <span id="training" style="color: var(--bs-white);">{{ course.name }}</span>
+                            <span id="fitness-level" class="float-end"
+                                  style="color: var(--bs-white);">{{ course.difficulty_level }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </section>

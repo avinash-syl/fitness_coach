@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from ..forms import SignUpForm, LoginForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 # Views for login and signup pages
@@ -38,6 +39,8 @@ def signup_view(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('home')
