@@ -1,14 +1,18 @@
 from django.shortcuts import render
+from ..service.auth_service import AuthService
+
+authService = AuthService()
 
 
-class homepage_view():
-    def homepage(request):
-        return render(request, 'index.html')
+def homepage(request):
+    user = request.user
+    if user is not None:
+        user.username = authService.getUsernameFromEmailAddr(emailAddr=user.username)
+    return render(request, 'index.html', {'user': user})
 
 
-class in_progress_view():
-    def in_progress(request):
-        return render(request, 'in_progress.html')
+def in_progress(request):
+    return render(request, 'in_progress.html')
 
 
 class user_details():
