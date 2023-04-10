@@ -22,25 +22,29 @@
             </div>
         </div>
     </header>
-    <section class="py-5 mt-5">
-        <div class="container"><input type="search" class="w-100 rounded"
-                                      style="height: 43.6px;background: var(--bs-border-color-translucent);color: rgb(255,255,255);margin: 0px;margin-bottom: 32px;margin-left: 0px;padding: 18px 16px;">
-            <dl class="row mb-3" style="color: var(--bs-white);">
-                <dt class="col-sm-6">Training</dt>
-                <dt class="col-sm-6 text-end">Fitness Level</dt>
-            </dl>
-            <ul class="list-group">
-                <a href="course_details.html" class="list-group-item"
-                   style="background: var(--bs-list-group-border-color);"><span id="training"
-                                                                                style="color: var(--bs-white);">Biceps Training</span><span
-                        id="fitness-level" class="float-end" style="color: var(--bs-white);">Beginner</span></a>
-                <li class="list-group-item" style="background: var(--bs-list-group-border-color);"><span id="training"
-                                                                                                         style="color: var(--bs-white);">Leg Training</span><span
-                        id="fitness-level" class="float-end" style="color: var(--bs-white);">Medium</span></li>
-                <li class="list-group-item" style="background: var(--bs-list-group-border-color);"><span id="training"
-                                                                                                         style="color: var(--bs-white);">Chest Training</span><span
-                        id="fitness-level" class="float-end" style="color: var(--bs-white);">Advanced</span></li>
-            </ul>
-        </div>
-    </section>
+    {# only show recommendations after user login #}
+    {% if user.is_authenticated %}
+        <section class="py-5 mt-5">
+            <div class="container"><input type="search" class="w-100 rounded"
+                                          style="height: 43.6px;background: var(--bs-border-color-translucent);color: rgb(255,255,255);margin: 0px;margin-bottom: 32px;margin-left: 0px;padding: 18px 16px;">
+                <dl class="row mb-3" style="color: var(--bs-white);">
+                    <dt class="col-sm-6">Training</dt>
+                    <dt class="col-sm-6 text-end">Fitness Level</dt>
+                </dl>
+                <ul class="list-group">
+                    <a href="course_details.html" class="list-group-item"
+                       style="background: var(--bs-list-group-border-color);"><span id="training"
+                                                                                    style="color: var(--bs-white);">Biceps Training</span><span
+                            id="fitness-level" class="float-end" style="color: var(--bs-white);">Beginner</span></a>
+                    <li class="list-group-item" style="background: var(--bs-list-group-border-color);"><span id="training"
+                                                                                                             style="color: var(--bs-white);">Leg Training</span><span
+                            id="fitness-level" class="float-end" style="color: var(--bs-white);">Medium</span></li>
+                    <li class="list-group-item" style="background: var(--bs-list-group-border-color);"><span id="training"
+                                                                                                             style="color: var(--bs-white);">Chest Training</span><span
+                            id="fitness-level" class="float-end" style="color: var(--bs-white);">Advanced</span></li>
+                </ul>
+            </div>
+        </section>
+    {% else %}
+    {% endif %}
 {% endblock %}

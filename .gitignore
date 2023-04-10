@@ -4,3 +4,4 @@ lib
 pyvenv.cfg
 __pycache__/
 .idea/
+db.sqlite3
