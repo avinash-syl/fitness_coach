@@ -79,13 +79,25 @@ WSGI_APPLICATION = 'fitness_coach.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': BASE_DIR / 'users',
+        'ENFORCE_SCHEMA': False,  # Set this to False if you want Djongo to work with MongoDB's flexible schema
+        'NAME': 'Fitness_plan',
+        'CLIENT': {
+            'host': 'mongodb+srv://sherlockn21:<Zxcmas@123>@fitness-plan.unlxt3x.mongodb.net/',
+            'username': 'sherlockn21',
+            'password': os.environ.get('Zxcmas@123'),  # Replace '<password>' in the connection string with your actual password
+            'authMechanism': 'SCRAM-SHA-1',
+            'retryWrites': True,
+            'w': 'majority',
+            'ssl': True,
+            'ssl_cert_reqs': 'CERT_NONE',
+            'tz_aware': True,
+        },
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
 }
+
+
+
+
 
 
 # Password validation
