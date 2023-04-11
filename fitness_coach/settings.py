@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os.path
 from pathlib import Path
-
+import urllib.parse
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,25 +76,13 @@ WSGI_APPLICATION = 'fitness_coach.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'ENFORCE_SCHEMA': False,  # Set this to False if you want Djongo to work with MongoDB's flexible schema
-        'NAME': 'Fitness_plan',
-        'CLIENT': {
-            'host': 'mongodb+srv://sherlockn21:<Zxcmas@123>@fitness-plan.unlxt3x.mongodb.net/',
-            'username': 'sherlockn21',
-            'password': os.environ.get('Zxcmas@123'),  # Replace '<password>' in the connection string with your actual password
-            'authMechanism': 'SCRAM-SHA-1',
-            'retryWrites': True,
-            'w': 'majority',
-            'ssl': True,
-            'ssl_cert_reqs': 'CERT_NONE',
-            'tz_aware': True,
-        },
+        'ENFORCE_SCHEMA': False,
+        'NAME': 'Fitness-plan',
+        'HOST': 'mongodb+srv://sherlockn21:<Zxcmas@123>@fitness-plan.unlxt3x.mongodb.net/?retryWrites=true&w=majority',
+        'PORT': 27017,
+        'USER': urllib.parse.quote_plus('sherlockn21'),  # Escape username
+        'PASSWORD': urllib.parse.quote_plus('Zxcmas@123'),  # Escape password
     }
-
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
 }
 
 # Password validation
@@ -145,10 +133,10 @@ if DEBUG:
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'fit_coach', 'static')
-]
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
