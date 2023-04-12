@@ -1,3 +1,18 @@
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
 const csrftoken = getCookie('csrftoken');
 
 $.ajaxSetup({
@@ -37,12 +52,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function showFeedbackDialog() {
+  $('#feedbackModal').modal('show');
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const subscribeButton = document.getElementById("subscribeButton");
     const courseId = $('#subscribeButton').data('course-id')
 
     subscribeButton.addEventListener("click", function () {
-        if (subscribeButton.textContent === "Subscribe") {
+        if (subscribeButton.textContent.trim() === "Subscribe") {
             $.ajax({
                 url: '/start/',
                 type: 'POST',
@@ -50,39 +69,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     'course_id': courseId,
                 },
                 dataType: 'json',
-                success: function (response) {
+                success: function (_) {
                     subscribeButton.textContent = "Terminate";
                 }
             })
-
-        } else {
-            $.ajax({
-                url: '/terminate/',
-                type: 'POST',
-                data: {
-                    'course_id': courseId,
-                },
-                dataType: 'json',
-                success: function (response) {
-                    subscribeButton.textContent = "Subscribe";
-                }
-            })
+        } else if (subscribeButton.textContent.trim() == "Terminate") {
+            showFeedbackDialog()
+            subscribeButton.textContent = "Subscribe"
         }
     });
 });
 
-function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
-        var cookies = document.cookie.split(";");
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === name + "=") {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
 

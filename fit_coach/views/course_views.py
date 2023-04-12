@@ -25,11 +25,21 @@ def start_course(request):
 
 
 @login_required
-def terminate_course(request):
+def terminate_course(request, course_id):
     user = request.user
     # backend should implement the logic of removing course from in progress
 
-    return JsonResponse({})
+    return redirect('detail', course_id)
+
+@login_required
+def feedback(request, course_id):
+    if request.method == 'POST':
+        rating = request.POST.get('rating')
+        # collect rating from user, add to database
+
+        return redirect('terminate', course_id)
+    else:
+        return redirect('detail', course_id)
 
 
 def in_progress(request):

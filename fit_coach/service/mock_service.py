@@ -81,5 +81,5 @@ class MockDataService:
             "goal": "Lose Weight",
             "equipment": None,
             "training_part": "Full Body",
-            "in_progress": True,
+            "in_progress": False,
         }

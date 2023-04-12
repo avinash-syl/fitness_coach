@@ -9,15 +9,14 @@
     <section class="py-5">
         <div class="container py-5">
             <h1>{{ detail.name }}</h1>
-            {% if not detail.in_progress %}
-                <button class="btn btn-primary mt-5" id="subscribeButton" type="button" data-course-id={{ detail.id }}>
+            <button class="btn btn-primary mt-5" id="subscribeButton" type="button" data-course-id={{ detail.id }}>
+                {% if not detail.in_progress %}
                     Subscribe
-                </button>
-            {% else %}
-                <button class="btn btn-primary mt-5" id="subscribeButton" type="button" data-course-id={{ detail.id }}>
+                {% else %}
                     Terminate
-                </button>
-            {% endif %}
+                {% endif %}
+            </button>
+
             <dl style="margin-top: 50px;">
                 <dt>Description</dt>
                 <dd>{{ detail.description }}</dd>
@@ -28,4 +27,5 @@
             </dl>
         </div>
     </section>
+    {% include 'feedback.html' %}
 {% endblock %}
