@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os.path
 from pathlib import Path
 import urllib.parse
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -74,14 +75,18 @@ WSGI_APPLICATION = 'fitness_coach.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'djongo',
+    #     'ENFORCE_SCHEMA': False,
+    #     'NAME': 'Fitness-plan',
+    #     'HOST': 'mongodb+srv://sherlockn21:<Zxcmas@123>@fitness-plan.unlxt3x.mongodb.net/?retryWrites=true&w=majority',
+    #     'PORT': 27017,
+    #     'USER': urllib.parse.quote_plus('sherlockn21'),  # Escape username
+    #     'PASSWORD': urllib.parse.quote_plus('Zxcmas@123'),  # Escape password
+    # }
     'default': {
-        'ENGINE': 'djongo',
-        'ENFORCE_SCHEMA': False,
-        'NAME': 'Fitness-plan',
-        'HOST': 'mongodb+srv://sherlockn21:<Zxcmas@123>@fitness-plan.unlxt3x.mongodb.net/?retryWrites=true&w=majority',
-        'PORT': 27017,
-        'USER': urllib.parse.quote_plus('sherlockn21'),  # Escape username
-        'PASSWORD': urllib.parse.quote_plus('Zxcmas@123'),  # Escape password
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

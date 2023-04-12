@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Fitness Questionnaire</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.age.label_tag }}
+            {{ form.age }}
+        </div>
+        <div class="mb-3">
+            {{ form.gender.label_tag }}
+            {% for choice in form.gender %}
+                <div class="form-check form-check-inline">
+                    {{ choice.tag }}
+                    {{ choice.choice_label }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.interest.label_tag }}
+            {{ form.interest }}
+        </div>
+        <div class="mb-3">
+            {{ form.fitness_goal.label_tag }}
+            {% for choice in form.fitness_goal %}
+                <div class="form-check">
+                    {{ choice.tag }}
+                    {{ choice.choice_label }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</body>
+</html>

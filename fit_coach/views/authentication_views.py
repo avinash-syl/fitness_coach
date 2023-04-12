@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from ..forms import SignUpForm, LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 
 # Views for login and signup pages
@@ -35,7 +36,8 @@ def signup_view(request):
 
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('home')
+            # redirect to questionnaire
+            return redirect(reverse('questionnaire'))
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
