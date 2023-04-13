@@ -19,8 +19,10 @@ def get_workout_plan(id):
     workout_plan = WorkoutPlan.objects.get(id = id)
     return workout_plan
 
-def update_current_plan(id):
-    pass
+def update_current_plan(username, course_id):
+    fit_user = FitUser.objects.get(username=username)
+    fit_user.current_plans.append(course_id)
+    fit_user.save()
 
 def terminate_user_plan(username, course_id):
     fit_user = FitUser.objects.get(username=username)
