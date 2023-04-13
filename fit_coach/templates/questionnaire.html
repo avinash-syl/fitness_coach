@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <h1 class="mt-5">Fitness Questionnaire</h1>
-    <form method="post">
+    <form method="post" action="{% url 'questionnaire' %}">
         {% csrf_token %}
         <div class="mb-3">
             {{ form.age.label_tag }}
@@ -28,13 +28,8 @@
             {{ form.interest }}
         </div>
         <div class="mb-3">
-            {{ form.fitness_goal.label_tag }}
-            {% for choice in form.fitness_goal %}
-                <div class="form-check">
-                    {{ choice.tag }}
-                    {{ choice.choice_label }}
-                </div>
-            {% endfor %}
+            <label for="fitness_goal">Fitness goal:</label>
+            <input type="text" class="form-control" id="fitness_goal" name="fitness_goal" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
