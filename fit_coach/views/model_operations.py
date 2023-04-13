@@ -7,6 +7,7 @@ def update_user_questionnaire(form_data, username):
     fit_user.interest = form_data['interest']
     fit_user.fitness_goal = form_data['fitness_goal']
     
+    print(fit_user)
     fit_user.save()
     
 def update_user_rating(rating, username):
