@@ -14,15 +14,19 @@
                 </div>
             </div>
             <ul class="list-group" id="inProgressList">
-                {% for course in courses %}
-                    <li class="list-group-item" style="background: var(--bs-list-group-border-color);">
-                        <a href="{% url 'detail' course.id %}" class="list">
-                            <span id="training" style="color: var(--bs-white);">{{ course.name }}</span>
-                            <span id="fitness-level" class="float-end"
-                                  style="color: var(--bs-white);">{{ course.difficulty_level }}</span>
-                        </a>
-                    </li>
-                {% endfor %}
+                {% if not courses %}
+                    <span style="color: var(--bs-white);">No courses currently active</span>
+                {% else %}
+                    {% for course in courses %}
+                        <li class="list-group-item" style="background: var(--bs-list-group-border-color);">
+                            <a href="{% url 'detail' course.id %}" class="list">
+                                <span id="training" style="color: var(--bs-white);">{{ course.name }}</span>
+                                <span id="fitness-level" class="float-end"
+                                      style="color: var(--bs-white);">{{ course.difficulty_level }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
             </ul>
         </div>
     </section>
