@@ -17,10 +17,12 @@ def questionnaire(request):
             try:
                 update_user_questionnaire(cleaned_data, user.username)
                 return redirect('home')
-            except:
+            except Exception as e:
+                print(f'Error occured with {e}')
                 form.add_error(None, "Error while updating user, try again")
                 return render(request, 'questionnaire.html', {'form': form})
         else:
+            print('form not valid', flush=True)
             return render(request, 'questionnaire.html', {'form': form})
     else:
         form = QuestionnaireForm()

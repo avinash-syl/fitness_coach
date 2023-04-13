@@ -8,26 +8,21 @@ class FitUser(models.Model):
     age = models.IntegerField(null=True, blank=True)
     gender = models.CharField(max_length=6, null=True, blank=True)
     interest = models.TextField(null=True, blank=True)
-    goal = models.TextField(null=True, blank=True)
     username = models.CharField(max_length=50)
     fitness_goal = models.TextField(null=True, blank=True)
     current_plans = ArrayField(
         models.IntegerField(),
         size=3,
-        default=list
+        default=list, blank=True, null=False
     )
     rating = models.IntegerField(default=1,
         validators=[
             MaxValueValidator(10),
             MinValueValidator(1)
         ])
-    def __init__(self, username, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
-        self.user_id = uuid.uuid4()
-        self.username = username
     
 class WorkoutPlan(models.Model):
-    plan_id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True)
     plan_name = models.TextField()
     description = models.TextField()
     difficulty_level = models.TextField()

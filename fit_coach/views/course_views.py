@@ -45,6 +45,8 @@ def feedback(request, course_id):
 @login_required
 def in_progress(request):
     user = request.user
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         courses = get_user_active_plans(user.username)
+        # if not courses:
+            # return render(request, 'in_progress.html', {'courses': [{'course_id': 'No courses currently active'}]})
     return render(request, 'in_progress.html', {'courses': courses})
