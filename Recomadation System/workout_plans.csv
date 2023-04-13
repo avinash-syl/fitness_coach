@@ -1,0 +1,6 @@
+plan_id,plan_name,description,difficulty_level,goal,equipment,training_part
+1,Full Body Workout,"This workout targets all major muscle groups in the body.",Beginner,Lose Weight,None,Full Body
+2,Upper Body Workout,"This workout targets the muscles in the upper body.",Intermediate,Build Muscle,Dumbbell,Upper Body
+3,Lower Body Workout,"This workout targets the muscles in the lower body.",Advanced,Increase Strength,Barbell,Lower Body
+4,Core Workout,"This workout targets the muscles in the core.",Beginner,Tone Muscle,None,Core
+5,Cardio Workout,"This workout is designed to improve cardiovascular fitness.",Intermediate,Increase Endurance,Stationary Bike,Cardio
