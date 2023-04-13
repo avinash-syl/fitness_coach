@@ -27,7 +27,7 @@ class FitUser(models.Model):
         self.username = username
     
 class WorkoutPlan(models.Model):
-    id = models.IntegerField(primary_key=True)
+    plan_id = models.IntegerField(primary_key=True)
     plan_name = models.TextField()
     description = models.TextField()
     difficulty_level = models.TextField()

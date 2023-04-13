@@ -86,9 +86,9 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fit_coach',
+        'NAME': 'fitness-plan',
         'USER': 'postgres',
-        'PASSWORD': 'pass',
+        'PASSWORD': 'zxcmas123',
     }
 }
 
