@@ -85,8 +85,10 @@ DATABASES = {
     #     'PASSWORD': urllib.parse.quote_plus('Zxcmas@123'),  # Escape password
     # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fit_coach',
+        'USER': 'postgres',
+        'PASSWORD': 'pass',
     }
 }
 
@@ -132,6 +134,23 @@ if DEBUG:
         @method_decorator(never_cache)
         def dispatch(self, *args, **kwargs):
             return super().dispatch(*args, **kwargs)
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers':['console'],
+            'propagate': True,
+            'level':'DEBUG',
+        }
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

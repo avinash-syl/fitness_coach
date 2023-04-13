@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import LabelEncoder
+from models import FitUser, WorkoutPlan
 
 # Load the workout plans data
 workout_plans_data = pd.read_csv('workout_plans.csv')
